@@ -4,17 +4,13 @@
 	</head>
 	
 	<body>
+	<input type="button" value="1">
 		<h1>Le Jeu Des Fous</h1>
-		
-		<!--Ceci represente l'ecran de notre jeu-->
 		<div class="ecran">
-		
-			<!--Ici s'affichera les defi-->
 			<div class = "affText">
 			
 			</div>
 			
-			<!--Ici, on propose 9boutons a l'utilisateur-->
 			<div class="choixBouton">
 				<input type="button" value="1" class="bouton"> <input type="button" value="2" class="bouton"> <input type="button" value="3" class="bouton"> 
 				<input type="button" value="4" class="bouton"> <input type="button" value="5" class="bouton"> <input type="button" value="6" class="bouton"> 
