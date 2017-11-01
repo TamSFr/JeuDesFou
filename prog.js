@@ -54,8 +54,13 @@ app.controller('choix',
 			
 			//timeout avant le lancement de la fonction afficher
 			$scope.aff = function(n){
-				$timeout($scope.afficher(n), 10000);
+				$scope.question = "Chargement...";
+				$timeout(function(){
+					$scope.afficher(n);
+				}, 1000)
 			}
+			
+			
 			
 			/*Nombre de queston estante
 			==> affiché en bas de page*/
