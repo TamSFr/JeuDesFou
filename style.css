@@ -1,12 +1,16 @@
 h1
 {
 	text-align : center;
+	color : white;
 }
 
 body
 {
 	width : 100%;
 	text-align : center;
+	background-image : url("img/fond.jpeg");
+	background-size : cover;
+	background-attachment : fixed;
 }
 
 .ecran
@@ -40,7 +44,7 @@ body
 .bouton
 {
 	display : inline-block;
-	font-size: 29px;
+	font-size: 2em;
 	width : 25%;
 	height : 12%;
 	margin-top : 0.5%;
