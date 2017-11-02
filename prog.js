@@ -31,14 +31,18 @@ app.controller('choix',
 				"Tu es désormais le sniper !",
 				"cascade !",
 				"cascade !",
-				"Les hommes boivent 2coups !",
-				"Les dames boivent 2coups !",
-				"Dans ma valise, il y avais...",
+				"Entre couille !<br>Les hommes boivent 2coups chacun !",
+				"Solidarité féminine !<br>Les dames boivent 2coups chacune !",
+				"Dans ma valise, il y a...",
 				"Tu bois une gorgé, le joueur a ta droite en boie deux<br>selui a sa droite en boie trois, etc etc",
 				"Qui pourais...",
 				"CDN",
 				"Je n'ai jamais ...",
-				"Maitre des question !<br>Pendant 2 tours, si quelqu'un répond à tes questions, il boira une gorgé"
+				"Maitre des question !<br>Pendant 2 tours, si quelqu'un répond à tes questions, il boira une gorgée",
+				"Toi et ton voisin de droite êtes lié,<br>si l'un boit, l'autre boit aussi!",
+				"Enleve autant de vêtement que tu veux<br>Tu bois un nombre de gorgé égale au nombre de vêtement qu'il te reste",
+				"Bataille de pouce !<br>Fais un bras de fer chinois avec ton voisin de gauche<br>Le perdant boit 3gorgées",
+				"Gage !<br>Le joueur à ta gauche te donne un gage<br>6 Gorgées en cas de refus!"
 			];
 			/*-------------------
 			---------Fin---------
@@ -173,10 +177,10 @@ app.controller('choix',
 				var alea = Math.floor(Math.random()*tabQuest.length);
 				$scope.question = tabQuest[alea];
 				if($scope.question=="BTC"){
-					$scope.question = "Tu bois "+n+" coups !";
+					$scope.question = "OUCH !<br>Tu bois "+n+" coups !";
 				}
 				if($scope.question=="DTC"){
-					$scope.question = "Tu donnes "+n+" coups !";
+					$scope.question = "BOOM ! <br>Tu donnes "+n+" coups !";
 				}
 				if($scope.question=="CDN"){
 					$scope.course();
@@ -196,7 +200,7 @@ app.controller('choix',
 				
 				$timeout(function(){
 					$scope.afficher(n);
-				}, 1000)
+				}, 500)
 			}
 			
 			
