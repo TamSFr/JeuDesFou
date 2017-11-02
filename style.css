@@ -1,0 +1,70 @@
+h1
+{
+	text-align : center;
+	color : white;
+}
+
+body
+{
+	width : 100%;
+	text-align : center;
+	background-image : url("img/fond.jpeg");
+	/*background-image : url("img/fond2.jpg");*/
+	background-size : cover;
+	background-attachment : fixed;
+}
+
+.ecran
+{
+	display : inline-block;
+	border : 6px solid grey;
+	background-color : black;
+	width : 80%;
+	height : 78%;
+	background-color : #00BFFF;
+	
+	text-align : center;
+	margin-top : 2%;
+}
+
+.affText
+{
+	display : inline-block;
+	text-align : center;
+	width : 70%;
+	height : 40%;
+	border : 3px solid gray;
+	margin-top : 2%;
+	padding : 2%;
+	background-color : white;
+	font-size : 2em;
+}
+
+.choixBouton
+{
+	margin-top : 2%;
+}
+
+.bouton
+{
+	display : inline-block;
+	font-size: 2em;
+	width : 25%;
+	height : 12%;
+	margin-top : 0.5%;
+}
+
+.nyantCat img
+{
+	width : 7%;
+}
+
+.nyantCat
+{
+	margin-top : -2.5%;
+	text-align : left;
+	white-space:nowrap;
+	font-size : 0.7em;
+	overflow: scroll;
+	
+}
