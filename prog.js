@@ -1,27 +1,44 @@
 'use strict';
 var app = angular.module("myApp", ['ngSanitize']);
 app.controller('choix', 
-	function($scope, $timeout) 
+	function($scope, $timeout, $interval) 
 	{
-		
-		/*----------------------------------------------------------------------------
-		--------------------------                          --------------------------
-		-------------------------- SCOPE AFFICHAGE / BOUTON --------------------------
-		--------------------------                          --------------------------
-		------------------------------------------------------------------------------*/
+			
+		/*---------------------------------------------------------------------
+		--------------------------                   --------------------------
+		-------------------------- TABLEAU QUESTIONS --------------------------
+		--------------------------                   --------------------------
+		-----------------------------------------------------------------------*/
 		
 			//Tableau Contenant toute les question
+			/*BTC => Bois tes coups
+			  DTC => Donne tes coups
+			  CDN => Course de nyant cat
 			/*-------------------
 			--------Debut--------
 			---------------------*/
 			var tabQuest = [
 				"Fais un pierre feuille ciseau avec ton voisin de droite !<br>Le perdant bois 3coups !",
 				"Tu es le maitre du pouce, tu ne pourras le faire que 3fois",
+				"BTC", 
+				"DTC",
+				"BTC",
+				"DTC",
 				"BTC",
 				"DTC",
 				"Invente une regle",
 				"Pendant 2tours, Ni oui ni non général !",
-				"Tu es désormais le sniper !"
+				"Tu es désormais le sniper !",
+				"cascade !",
+				"cascade !",
+				"Les hommes boivent 2coups !",
+				"Les dames boivent 2coups !",
+				"Dans ma valise, il y avais...",
+				"Tu bois une gorgé, le joueur a ta droite en boie deux<br>selui a sa droite en boie trois, etc etc",
+				"Qui pourais...",
+				"CDN",
+				"Je n'ai jamais ...",
+				"Maitre des question !<br>Pendant 2 tours, si quelqu'un répond à tes questions, il boira une gorgé"
 			];
 			/*-------------------
 			---------Fin---------
@@ -46,8 +63,104 @@ app.controller('choix',
 			}
 			
 			
-			
-			
+		/*-----------------------------------------------------------------------
+		--------------------------                     --------------------------
+		-------------------------- Course de nyant cat --------------------------
+		--------------------------                     --------------------------
+		-------------------------------------------------------------------------*/
+		/*Fonction censé ajouter un point à chat 1, 2, 3 ou 4 toute les seconde
+		  -- Pour une raison inconnue, il affiche le vainqueur aussitot..*/
+		$scope.course = function(){
+					
+			$scope.question = "Course de Nyant Cat !";
+				var ch1 = ""; //initialisation => fonctionnelle
+				var ch2 = "";
+				var ch3 = "";
+				var ch4 = "";
+				var c1 = 0;
+				var c2 = 0;
+				var c3 = 0;
+				var c4 = 0;
+				var chatFin = 0;
+				var chatAlea = -1
+				var nbPointChat = 30 //<===== C est ici qu'on defini la distance !
+					var timerCat = $interval(function(){
+						if(c1 < nbPointChat && c2 < nbPointChat && c3 <  nbPointChat && c4 < nbPointChat)
+						{
+								chatAlea = Math.floor(Math.random()*4);
+								if(chatAlea==0){
+									ch1 = ch1+"&nbsp&nbsp&nbsp&nbsp";
+									c1 = c1+1;
+								}
+								else
+								{
+									if(chatAlea==1)
+									{
+										ch2 = ch2+"&nbsp&nbsp&nbsp&nbsp";
+										c2 = c2+1;
+									}
+									else
+									{
+										if(chatAlea==2)
+										{
+											ch3 = ch3+"&nbsp&nbsp&nbsp&nbsp";
+											c3 = c3+1;
+										}
+										else
+										{
+											ch4 = ch4+"&nbsp&nbsp&nbsp&nbsp";
+											c4 = c4+1;
+										}
+									}
+							
+								}
+								$scope.question = "<div class='nyantCat'>"+ch1+"<img src='img/catb.png'><br>"+ch2+"<img src='img/catr.png'><br>"+ch3+"<img src='img/catv.png'><br>"+ch4+"<img src='img/catj.png'><br>"+"</font></div>";
+						}
+						else
+						{	
+							if(chatFin == 0){
+								chatFin = 1;
+							}
+								$scope.question = "<div class='nyantCat'>"+ch1+"<img src='img/catb.png'><br>"+ch2+"<img src='img/catr.png'><br>"+ch3+"<img src='img/catv.png'><br>"+ch4+"<img src='img/catj.png'><br>"+"</font></div>";
+							if (chatFin == 1){
+								if(chatAlea==0)
+								{
+									window.alert("le chat bleu a gagné !");
+								}
+								else{
+									if(chatAlea==1){
+										window.alert("le chat rouge a gagné !");
+									}
+									else{
+										if(chatAlea==2){
+											window.alert("le chat vert a gagné !");
+										}
+										else{
+											window.alert("le chat jaune a gagné !");
+										}
+									}
+								}
+								chatFin = 2;
+							}
+						}
+					}, 100, nbPointChat*4);
+				
+				window.alert("Course de Nyant Cat !\n\nFais tes parie entre le chat bleu, le rouge, le vert ou le jaune !");
+				$scope.question = $scope.question+"<br>Ok";
+				
+
+		}
+		/*------------------------------
+		---------Fin nyant cat ---------
+		--------------------------------*/
+
+		/*----------------------------------------------------------------------------
+		--------------------------                          --------------------------
+		-------------------------- AFFICHAGE BOUTON/REPONSE --------------------------
+		--------------------------                          --------------------------
+		------------------------------------------------------------------------------*/	
+
+		
 			/*Fonction afficher apres un temps :
 				Modifie la question de maniere aleatoire
 			  Variables : 
@@ -64,6 +177,9 @@ app.controller('choix',
 				}
 				if($scope.question=="DTC"){
 					$scope.question = "Tu donnes "+n+" coups !";
+				}
+				if($scope.question=="CDN"){
+					$scope.course();
 				}
 				tabMoin(tabQuest, alea);
 				$scope.questRest = "Questions restante : "+tabQuest.length;
@@ -88,6 +204,12 @@ app.controller('choix',
 			/*Nombre de queston estante
 			==> affiché en bas de page*/
 			$scope.questRest = "Questions restante : "+tabQuest.length;
+			
+			
+			/*-----------------------------
+			---------Fin affichage---------
+			-------------------------------*/
+		
 			
 			
 		

@@ -34,6 +34,7 @@ body
 	padding : 2%;
 	background-color : white;
 	font-size : 2em;
+	overflow: scroll;
 }
 
 .choixBouton
@@ -48,4 +49,18 @@ body
 	width : 25%;
 	height : 12%;
 	margin-top : 0.5%;
+}
+
+.nyantCat img
+{
+	width : 7%;
+}
+
+.nyantCat
+{
+	margin-top : -2.5%;
+	text-align : left;
+	white-space:nowrap;
+	font-size : 0.7em;
+	
 }
