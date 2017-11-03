@@ -6,9 +6,9 @@ h1
 
 body
 {
-	width : 100%;
+	width : 99%;
 	text-align : center;
-	background-image : url("img/fond.jpeg");
+	background-image : url("img/fond2.jpg");
 	/*background-image : url("img/fond2.jpg");*/
 	background-size : cover;
 	background-attachment : fixed;
@@ -22,7 +22,9 @@ body
 	width : 80%;
 	height : 78%;
 	background-color : #00BFFF;
-	
+	background-image : url("img/fond.jpg");
+	background-size : cover;
+	background-attachment : fixed;
 	text-align : center;
 	margin-top : 2%;
 }
@@ -37,7 +39,7 @@ body
 	margin-top : 2%;
 	padding : 2%;
 	background-color : white;
-	font-size : 2em;
+	font-size : 1.7em;
 }
 
 .choixBouton
